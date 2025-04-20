@@ -1,0 +1,41 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Registration Form</h2>
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input type="text" class="form-control" formControlName="name" />
+        <div class="text-danger" *ngIf="registrationForm.controls['name'].invalid && registrationForm.controls['name'].touched">
+          Name is required and must be at least 3 characters.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" />
+        <div class="text-danger" *ngIf="registrationForm.controls['email'].invalid && registrationForm.controls['email'].touched">
+          Please enter a valid email.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" />
+        <div class="text-danger" *ngIf="registrationForm.controls['password'].invalid && registrationForm.controls['password'].touched">
+          Password must be at least 6 characters.
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" formControlName="confirmPassword" />
+        <div class="text-danger" *ngIf="registrationForm.controls['confirmPassword'].invalid && registrationForm.controls['confirmPassword'].touched">
+          Confirm Password is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="registrationForm.invalid">
+        Register
+      </button>
+    </form>
+  </div>
+  
